@@ -15,8 +15,9 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path, include, re_path
 from rest_framework import routers
+from .yasg import urlpatterns as doc_urls
 
 from api_for_friends import views
 
@@ -50,3 +51,5 @@ urlpatterns = [
     # path('api/v1/auth/', include('djoser.urls')),
     # re_path(r'^auth/', include('djoser.urls.authtoken')),
 ]
+
+urlpatterns += doc_urls
